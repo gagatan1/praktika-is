@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="860" viewBox="0 0 1600 860" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+  <rect width="1600" height="860" fill="#fff"/>
+  <text x="800" y="24" text-anchor="middle" font-size="16" font-weight="bold">ER-диаграмма: автоматизированное тестирование веб-приложений с интеграцией в CI/CD</text>
+  <path d="M210,290 L300,290" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M390,140 L390,250" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M480,290 L570,290" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M660,158 L660,250" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M480,90 L570,90" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M750,290 L840,290" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M930,158 L930,250" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M1020,100 L1110,100" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M1200,158 L1200,250" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M700,386 L700,445 L1065,445 L1065,370 L1110,370" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M660,386 L660,480" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M1380,290 L1290,290" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M1470,332 L1470,480" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M1200,404 L1200,480" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M1380,530 L1290,530" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M1200,616 L1200,680" fill="none" stroke="#444" stroke-width="1.6"/>
+  <path d="M300,90 L12,90 L12,748 L1110,748" fill="none" stroke="#444" stroke-width="1.6"/>
+  <text x="214" y="284" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="288" y="284" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="255" y="282" text-anchor="middle" font-size="11" font-style="italic" fill="#555">содержит</text>
+  <text x="394" y="156" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="394" y="246" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="398" y="200" text-anchor="start" font-size="11" font-style="italic" fill="#555">делает</text>
+  <text x="484" y="284" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="558" y="284" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="525" y="282" text-anchor="middle" font-size="11" font-style="italic" fill="#555">запускает</text>
+  <text x="664" y="172" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="664" y="246" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="668" y="205" text-anchor="start" font-size="11" font-style="italic" fill="#555">порождает</text>
+  <text x="484" y="84" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="558" y="84" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="525" y="82" text-anchor="middle" font-size="11" font-style="italic" fill="#555">получает</text>
+  <text x="754" y="284" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="828" y="284" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="795" y="282" text-anchor="middle" font-size="11" font-style="italic" fill="#555">создаёт</text>
+  <text x="934" y="172" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="934" y="246" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="938" y="205" text-anchor="start" font-size="11" font-style="italic" fill="#555">выкладывается</text>
+  <text x="1024" y="94" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="1098" y="94" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1065" y="92" text-anchor="middle" font-size="11" font-style="italic" fill="#555">на стенде</text>
+  <text x="1204" y="172" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1204" y="246" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="1208" y="205" text-anchor="start" font-size="11" font-style="italic" fill="#555">для тестов</text>
+  <text x="704" y="402" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1096" y="364" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="880" y="438" text-anchor="middle" font-size="11" font-style="italic" fill="#555">запускает тесты</text>
+  <text x="664" y="402" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="664" y="474" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="652" y="435" text-anchor="end" font-size="11" font-style="italic" fill="#555">формирует</text>
+  <text x="1368" y="284" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1296" y="284" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="1335" y="282" text-anchor="middle" font-size="11" font-style="italic" fill="#555">прогоны</text>
+  <text x="1474" y="348" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1474" y="474" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="1478" y="410" text-anchor="start" font-size="11" font-style="italic" fill="#555">содержит</text>
+  <text x="1204" y="420" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1204" y="474" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="1208" y="445" text-anchor="start" font-size="11" font-style="italic" fill="#555">даёт</text>
+  <text x="1368" y="524" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1296" y="524" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="1335" y="522" text-anchor="middle" font-size="11" font-style="italic" fill="#555">оценка</text>
+  <text x="1204" y="632" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1204" y="674" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="1208" y="652" text-anchor="start" font-size="11" font-style="italic" fill="#555">порождает</text>
+  <text x="286" y="84" font-size="12" font-weight="bold" fill="#b00020">1</text>
+  <text x="1096" y="742" font-size="12" font-weight="bold" fill="#b00020">N</text>
+  <text x="700" y="742" text-anchor="middle" font-size="11" font-style="italic" fill="#555">исправляет</text>
+  <rect x="300" y="40" width="180" height="100" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="300" y="40" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="390" y="59" text-anchor="middle" font-size="13" font-weight="bold">Разработчик</text>
+  <text x="308" y="82" font-size="12" font-weight="bold">ПК</text><text x="332" y="82" font-size="12" font-weight="bold" text-decoration="underline">ид_разработчика</text>
+  <text x="332" y="100" font-size="12">фио</text>
+  <text x="332" y="118" font-size="12">почта</text>
+  <text x="332" y="136" font-size="12">роль</text>
+  <rect x="570" y="40" width="180" height="118" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="570" y="40" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="660" y="59" text-anchor="middle" font-size="13" font-weight="bold">Уведомление</text>
+  <text x="578" y="82" font-size="12" font-weight="bold">ПК</text><text x="602" y="82" font-size="12" font-weight="bold" text-decoration="underline">ид_уведомления</text>
+  <text x="578" y="100" font-size="12" fill="#1a5fb4">ВК</text><text x="602" y="100" font-size="12" font-style="italic">ид_запуска</text>
+  <text x="578" y="118" font-size="12" fill="#1a5fb4">ВК</text><text x="602" y="118" font-size="12" font-style="italic">ид_разработчика</text>
+  <text x="602" y="136" font-size="12">сообщение</text>
+  <text x="602" y="154" font-size="12">отправлено</text>
+  <rect x="840" y="40" width="180" height="118" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="840" y="40" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="930" y="59" text-anchor="middle" font-size="13" font-weight="bold">Развёртывание</text>
+  <text x="848" y="82" font-size="12" font-weight="bold">ПК</text><text x="872" y="82" font-size="12" font-weight="bold" text-decoration="underline">ид_развёртывания</text>
+  <text x="848" y="100" font-size="12" fill="#1a5fb4">ВК</text><text x="872" y="100" font-size="12" font-style="italic">ид_сборки</text>
+  <text x="848" y="118" font-size="12" fill="#1a5fb4">ВК</text><text x="872" y="118" font-size="12" font-style="italic">ид_стенда</text>
+  <text x="872" y="136" font-size="12">развёрнуто</text>
+  <text x="872" y="154" font-size="12">статус</text>
+  <rect x="1110" y="40" width="180" height="118" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="1110" y="40" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="1200" y="59" text-anchor="middle" font-size="13" font-weight="bold">Тестовый стенд</text>
+  <text x="1118" y="82" font-size="12" font-weight="bold">ПК</text><text x="1142" y="82" font-size="12" font-weight="bold" text-decoration="underline">ид_стенда</text>
+  <text x="1142" y="100" font-size="12">название</text>
+  <text x="1142" y="118" font-size="12">тип_стенда</text>
+  <text x="1142" y="136" font-size="12">адрес</text>
+  <text x="1142" y="154" font-size="12">статус</text>
+  <rect x="30" y="250" width="180" height="100" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="30" y="250" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="120" y="269" text-anchor="middle" font-size="13" font-weight="bold">Репозиторий</text>
+  <text x="38" y="292" font-size="12" font-weight="bold">ПК</text><text x="62" y="292" font-size="12" font-weight="bold" text-decoration="underline">ид_репозитория</text>
+  <text x="62" y="310" font-size="12">название</text>
+  <text x="62" y="328" font-size="12">адрес</text>
+  <text x="62" y="346" font-size="12">ветка</text>
+  <rect x="300" y="250" width="180" height="136" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="300" y="250" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="390" y="269" text-anchor="middle" font-size="13" font-weight="bold">Коммит</text>
+  <text x="308" y="292" font-size="12" font-weight="bold">ПК</text><text x="332" y="292" font-size="12" font-weight="bold" text-decoration="underline">ид_коммита</text>
+  <text x="308" y="310" font-size="12" fill="#1a5fb4">ВК</text><text x="332" y="310" font-size="12" font-style="italic">ид_репозитория</text>
+  <text x="308" y="328" font-size="12" fill="#1a5fb4">ВК</text><text x="332" y="328" font-size="12" font-style="italic">ид_разработчика</text>
+  <text x="332" y="346" font-size="12">хеш</text>
+  <text x="332" y="364" font-size="12">сообщение</text>
+  <text x="332" y="382" font-size="12">дата_коммита</text>
+  <rect x="570" y="250" width="180" height="136" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="570" y="250" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="660" y="269" text-anchor="middle" font-size="13" font-weight="bold">Запуск пайплайна</text>
+  <text x="578" y="292" font-size="12" font-weight="bold">ПК</text><text x="602" y="292" font-size="12" font-weight="bold" text-decoration="underline">ид_запуска</text>
+  <text x="578" y="310" font-size="12" fill="#1a5fb4">ВК</text><text x="602" y="310" font-size="12" font-style="italic">ид_коммита</text>
+  <text x="602" y="328" font-size="12">тип_запуска</text>
+  <text x="602" y="346" font-size="12">статус</text>
+  <text x="602" y="364" font-size="12">начало</text>
+  <text x="602" y="382" font-size="12">окончание</text>
+  <rect x="840" y="250" width="180" height="136" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="840" y="250" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="930" y="269" text-anchor="middle" font-size="13" font-weight="bold">Сборка</text>
+  <text x="848" y="292" font-size="12" font-weight="bold">ПК</text><text x="872" y="292" font-size="12" font-weight="bold" text-decoration="underline">ид_сборки</text>
+  <text x="848" y="310" font-size="12" fill="#1a5fb4">ВК</text><text x="872" y="310" font-size="12" font-style="italic">ид_запуска</text>
+  <text x="872" y="328" font-size="12">версия</text>
+  <text x="872" y="346" font-size="12">статус</text>
+  <text x="872" y="364" font-size="12">путь_артефакта</text>
+  <text x="872" y="382" font-size="12">журнал</text>
+  <rect x="1110" y="250" width="180" height="154" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="1110" y="250" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="1200" y="269" text-anchor="middle" font-size="13" font-weight="bold">Прогон тестов</text>
+  <text x="1118" y="292" font-size="12" font-weight="bold">ПК</text><text x="1142" y="292" font-size="12" font-weight="bold" text-decoration="underline">ид_прогона</text>
+  <text x="1118" y="310" font-size="12" fill="#1a5fb4">ВК</text><text x="1142" y="310" font-size="12" font-style="italic">ид_запуска</text>
+  <text x="1118" y="328" font-size="12" fill="#1a5fb4">ВК</text><text x="1142" y="328" font-size="12" font-style="italic">ид_набора</text>
+  <text x="1118" y="346" font-size="12" fill="#1a5fb4">ВК</text><text x="1142" y="346" font-size="12" font-style="italic">ид_стенда</text>
+  <text x="1142" y="364" font-size="12">статус</text>
+  <text x="1142" y="382" font-size="12">начало</text>
+  <text x="1142" y="400" font-size="12">окончание</text>
+  <rect x="1380" y="250" width="180" height="82" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="1380" y="250" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="1470" y="269" text-anchor="middle" font-size="13" font-weight="bold">Набор тестов</text>
+  <text x="1388" y="292" font-size="12" font-weight="bold">ПК</text><text x="1412" y="292" font-size="12" font-weight="bold" text-decoration="underline">ид_набора</text>
+  <text x="1412" y="310" font-size="12">название</text>
+  <text x="1412" y="328" font-size="12">тип_набора</text>
+  <rect x="570" y="480" width="180" height="136" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="570" y="480" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="660" y="499" text-anchor="middle" font-size="13" font-weight="bold">Отчёт о тестах</text>
+  <text x="578" y="522" font-size="12" font-weight="bold">ПК</text><text x="602" y="522" font-size="12" font-weight="bold" text-decoration="underline">ид_отчёта</text>
+  <text x="578" y="540" font-size="12" fill="#1a5fb4">ВК</text><text x="602" y="540" font-size="12" font-style="italic">ид_запуска</text>
+  <text x="602" y="558" font-size="12">всего_тестов</text>
+  <text x="602" y="576" font-size="12">пройдено</text>
+  <text x="602" y="594" font-size="12">провалено</text>
+  <text x="602" y="612" font-size="12">вердикт</text>
+  <rect x="1110" y="480" width="180" height="136" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="1110" y="480" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="1200" y="499" text-anchor="middle" font-size="13" font-weight="bold">Результат теста</text>
+  <text x="1118" y="522" font-size="12" font-weight="bold">ПК</text><text x="1142" y="522" font-size="12" font-weight="bold" text-decoration="underline">ид_результата</text>
+  <text x="1118" y="540" font-size="12" fill="#1a5fb4">ВК</text><text x="1142" y="540" font-size="12" font-style="italic">ид_прогона</text>
+  <text x="1118" y="558" font-size="12" fill="#1a5fb4">ВК</text><text x="1142" y="558" font-size="12" font-style="italic">ид_кейса</text>
+  <text x="1142" y="576" font-size="12">статус</text>
+  <text x="1142" y="594" font-size="12">длительность</text>
+  <text x="1142" y="612" font-size="12">текст_ошибки</text>
+  <rect x="1380" y="480" width="180" height="100" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="1380" y="480" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="1470" y="499" text-anchor="middle" font-size="13" font-weight="bold">Тест-кейс</text>
+  <text x="1388" y="522" font-size="12" font-weight="bold">ПК</text><text x="1412" y="522" font-size="12" font-weight="bold" text-decoration="underline">ид_кейса</text>
+  <text x="1388" y="540" font-size="12" fill="#1a5fb4">ВК</text><text x="1412" y="540" font-size="12" font-style="italic">ид_набора</text>
+  <text x="1412" y="558" font-size="12">название</text>
+  <text x="1412" y="576" font-size="12">ожидаемый_результат</text>
+  <rect x="1110" y="680" width="180" height="136" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="1110" y="680" width="180" height="28" fill="#cfe3f5" stroke="#222" stroke-width="2"/>
+  <text x="1200" y="699" text-anchor="middle" font-size="13" font-weight="bold">Дефект</text>
+  <text x="1118" y="722" font-size="12" font-weight="bold">ПК</text><text x="1142" y="722" font-size="12" font-weight="bold" text-decoration="underline">ид_дефекта</text>
+  <text x="1118" y="740" font-size="12" fill="#1a5fb4">ВК</text><text x="1142" y="740" font-size="12" font-style="italic">ид_результата</text>
+  <text x="1118" y="758" font-size="12" fill="#1a5fb4">ВК</text><text x="1142" y="758" font-size="12" font-style="italic">ид_разработчика</text>
+  <text x="1142" y="776" font-size="12">описание</text>
+  <text x="1142" y="794" font-size="12">статус</text>
+  <text x="1142" y="812" font-size="12">создан</text>
+  <text x="30" y="810" font-size="12">ПК — первичный ключ;  ВК — внешний ключ;</text>
+  <text x="30" y="828" font-size="12">1 / N — кратность связи (один / много)</text>
+</svg>

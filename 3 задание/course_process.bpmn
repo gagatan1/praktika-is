@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:participant id="Participant_1" name="Процесс автоматизированного тестирования веб-приложения в CI/CD" processRef="Process_1" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Dev" name="Разработчик">
+        <bpmn:flowNodeRef>Start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_Push</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_Fix</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_CI" name="CI/CD-сервер">
+        <bpmn:flowNodeRef>T_Run</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_Build</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G_Build</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_Stop</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_Deploy</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G_Pass</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_Release</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Test" name="Система автотестирования">
+        <bpmn:flowNodeRef>G_Split</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_UI</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_API</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G_Join</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T_Report</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start" name="Изменения кода готовы">
+      <bpmn:outgoing>F1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="T_Push" name="Отправить изменения в репозиторий (commit/push)">
+      <bpmn:incoming>F1</bpmn:incoming>
+      <bpmn:incoming>F18</bpmn:incoming>
+      <bpmn:outgoing>F2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="T_Fix" name="Исправить ошибки и дефекты">
+      <bpmn:incoming>F7</bpmn:incoming>
+      <bpmn:incoming>F16</bpmn:incoming>
+      <bpmn:outgoing>F18</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="T_Run" name="Запустить пайплайн по webhook">
+      <bpmn:incoming>F2</bpmn:incoming>
+      <bpmn:outgoing>F3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="T_Build" name="Собрать приложение и установить зависимости">
+      <bpmn:incoming>F3</bpmn:incoming>
+      <bpmn:outgoing>F4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="G_Build" name="Сборка успешна?">
+      <bpmn:incoming>F4</bpmn:incoming>
+      <bpmn:outgoing>F5</bpmn:outgoing>
+      <bpmn:outgoing>F6</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="T_Stop" name="Остановить пайплайн и уведомить разработчика">
+      <bpmn:incoming>F6</bpmn:incoming>
+      <bpmn:outgoing>F7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="T_Deploy" name="Развернуть сборку на тестовом стенде">
+      <bpmn:incoming>F5</bpmn:incoming>
+      <bpmn:outgoing>F8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="G_Split">
+      <bpmn:incoming>F8</bpmn:incoming>
+      <bpmn:outgoing>F9</bpmn:outgoing>
+      <bpmn:outgoing>F10</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="T_UI" name="Выполнить UI/E2E-тесты">
+      <bpmn:incoming>F9</bpmn:incoming>
+      <bpmn:outgoing>F11</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="T_API" name="Выполнить API- и интеграционные тесты">
+      <bpmn:incoming>F10</bpmn:incoming>
+      <bpmn:outgoing>F12</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="G_Join">
+      <bpmn:incoming>F11</bpmn:incoming>
+      <bpmn:incoming>F12</bpmn:incoming>
+      <bpmn:outgoing>F13</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="T_Report" name="Сформировать отчёт о тестировании">
+      <bpmn:incoming>F13</bpmn:incoming>
+      <bpmn:outgoing>F14</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="G_Pass" name="Все тесты пройдены?">
+      <bpmn:incoming>F14</bpmn:incoming>
+      <bpmn:outgoing>F15</bpmn:outgoing>
+      <bpmn:outgoing>F16</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="T_Release" name="Опубликовать сборку (деплой в production)">
+      <bpmn:incoming>F15</bpmn:incoming>
+      <bpmn:outgoing>F17</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End" name="Релиз выпущен">
+      <bpmn:incoming>F17</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="F1" sourceRef="Start" targetRef="T_Push" />
+    <bpmn:sequenceFlow id="F2" sourceRef="T_Push" targetRef="T_Run" />
+    <bpmn:sequenceFlow id="F3" sourceRef="T_Run" targetRef="T_Build" />
+    <bpmn:sequenceFlow id="F4" sourceRef="T_Build" targetRef="G_Build" />
+    <bpmn:sequenceFlow id="F5" name="Да" sourceRef="G_Build" targetRef="T_Deploy" />
+    <bpmn:sequenceFlow id="F6" name="Нет" sourceRef="G_Build" targetRef="T_Stop" />
+    <bpmn:sequenceFlow id="F7" sourceRef="T_Stop" targetRef="T_Fix" />
+    <bpmn:sequenceFlow id="F8" sourceRef="T_Deploy" targetRef="G_Split" />
+    <bpmn:sequenceFlow id="F9" sourceRef="G_Split" targetRef="T_UI" />
+    <bpmn:sequenceFlow id="F10" sourceRef="G_Split" targetRef="T_API" />
+    <bpmn:sequenceFlow id="F11" sourceRef="T_UI" targetRef="G_Join" />
+    <bpmn:sequenceFlow id="F12" sourceRef="T_API" targetRef="G_Join" />
+    <bpmn:sequenceFlow id="F13" sourceRef="G_Join" targetRef="T_Report" />
+    <bpmn:sequenceFlow id="F14" sourceRef="T_Report" targetRef="G_Pass" />
+    <bpmn:sequenceFlow id="F15" name="Да" sourceRef="G_Pass" targetRef="T_Release" />
+    <bpmn:sequenceFlow id="F16" name="Нет" sourceRef="G_Pass" targetRef="T_Fix" />
+    <bpmn:sequenceFlow id="F17" sourceRef="T_Release" targetRef="End" />
+    <bpmn:sequenceFlow id="F18" sourceRef="T_Fix" targetRef="T_Push" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Participant_1_di" bpmnElement="Participant_1" isHorizontal="true"><dc:Bounds x="160" y="80" width="1680" height="640" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Dev_di" bpmnElement="Lane_Dev" isHorizontal="true"><dc:Bounds x="190" y="80" width="1650" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_CI_di" bpmnElement="Lane_CI" isHorizontal="true"><dc:Bounds x="190" y="250" width="1650" height="250" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Test_di" bpmnElement="Lane_Test" isHorizontal="true"><dc:Bounds x="190" y="500" width="1650" height="220" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="222" y="147" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="205" y="188" width="70" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_Push_di" bpmnElement="T_Push"><dc:Bounds x="310" y="125" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_Fix_di" bpmnElement="T_Fix"><dc:Bounds x="590" y="125" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_Run_di" bpmnElement="T_Run"><dc:Bounds x="450" y="280" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_Build_di" bpmnElement="T_Build"><dc:Bounds x="590" y="280" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G_Build_di" bpmnElement="G_Build" isMarkerVisible="true"><dc:Bounds x="745" y="295" width="50" height="50" /><bpmndi:BPMNLabel><dc:Bounds x="715" y="258" width="110" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_Stop_di" bpmnElement="T_Stop"><dc:Bounds x="720" y="400" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_Deploy_di" bpmnElement="T_Deploy"><dc:Bounds x="850" y="280" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G_Split_di" bpmnElement="G_Split"><dc:Bounds x="995" y="585" width="50" height="50" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_UI_di" bpmnElement="T_UI"><dc:Bounds x="1090" y="520" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_API_di" bpmnElement="T_API"><dc:Bounds x="1090" y="620" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G_Join_di" bpmnElement="G_Join"><dc:Bounds x="1235" y="585" width="50" height="50" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_Report_di" bpmnElement="T_Report"><dc:Bounds x="1330" y="570" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G_Pass_di" bpmnElement="G_Pass" isMarkerVisible="true"><dc:Bounds x="1475" y="295" width="50" height="50" /><bpmndi:BPMNLabel><dc:Bounds x="1520" y="350" width="110" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T_Release_di" bpmnElement="T_Release"><dc:Bounds x="1590" y="280" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1742" y="302" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="1725" y="345" width="70" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="F1_di" bpmnElement="F1"><di:waypoint x="258" y="165" /><di:waypoint x="310" y="165" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_di" bpmnElement="F2"><di:waypoint x="410" y="165" /><di:waypoint x="500" y="165" /><di:waypoint x="500" y="280" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F3_di" bpmnElement="F3"><di:waypoint x="550" y="320" /><di:waypoint x="590" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F4_di" bpmnElement="F4"><di:waypoint x="690" y="320" /><di:waypoint x="745" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F5_di" bpmnElement="F5"><di:waypoint x="795" y="320" /><di:waypoint x="850" y="320" /><bpmndi:BPMNLabel><dc:Bounds x="813" y="302" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F6_di" bpmnElement="F6"><di:waypoint x="770" y="345" /><di:waypoint x="770" y="400" /><bpmndi:BPMNLabel><dc:Bounds x="778" y="365" width="22" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F7_di" bpmnElement="F7"><di:waypoint x="720" y="440" /><di:waypoint x="570" y="440" /><di:waypoint x="570" y="165" /><di:waypoint x="590" y="165" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F8_di" bpmnElement="F8"><di:waypoint x="950" y="320" /><di:waypoint x="1020" y="320" /><di:waypoint x="1020" y="585" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F9_di" bpmnElement="F9"><di:waypoint x="1045" y="610" /><di:waypoint x="1070" y="610" /><di:waypoint x="1070" y="560" /><di:waypoint x="1090" y="560" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F10_di" bpmnElement="F10"><di:waypoint x="1020" y="635" /><di:waypoint x="1020" y="660" /><di:waypoint x="1090" y="660" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F11_di" bpmnElement="F11"><di:waypoint x="1190" y="560" /><di:waypoint x="1260" y="560" /><di:waypoint x="1260" y="585" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F12_di" bpmnElement="F12"><di:waypoint x="1190" y="660" /><di:waypoint x="1260" y="660" /><di:waypoint x="1260" y="635" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F13_di" bpmnElement="F13"><di:waypoint x="1285" y="610" /><di:waypoint x="1330" y="610" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F14_di" bpmnElement="F14"><di:waypoint x="1430" y="610" /><di:waypoint x="1500" y="610" /><di:waypoint x="1500" y="345" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F15_di" bpmnElement="F15"><di:waypoint x="1525" y="320" /><di:waypoint x="1590" y="320" /><bpmndi:BPMNLabel><dc:Bounds x="1543" y="302" width="20" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F16_di" bpmnElement="F16"><di:waypoint x="1500" y="295" /><di:waypoint x="1500" y="225" /><di:waypoint x="640" y="225" /><di:waypoint x="640" y="205" /><bpmndi:BPMNLabel><dc:Bounds x="1508" y="262" width="22" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F17_di" bpmnElement="F17"><di:waypoint x="1690" y="320" /><di:waypoint x="1742" y="320" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F18_di" bpmnElement="F18"><di:waypoint x="640" y="125" /><di:waypoint x="640" y="100" /><di:waypoint x="360" y="100" /><di:waypoint x="360" y="125" /></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
